@@ -18,7 +18,13 @@ class CategoryItem extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(15),
       ),
-      child: Text(title),
+      alignment: Alignment.center,
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
     );
   }
 }
