@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
 import '../dummy_data.dart';
+import '../widgets/meal_item.dart';
 
 class CategoryMealsScreen extends StatelessWidget {
+  static const String route = '/category';
   const CategoryMealsScreen({super.key});
 
   @override
@@ -12,20 +14,25 @@ class CategoryMealsScreen extends StatelessWidget {
     final title = routeArgs['title'];
     final id = routeArgs['id'];
     final List<Meal> meals = DUMMY_MEALS
-        .where(
-          (element) => element.categories.contains(id),
-        )
+        .where((element) => element.categories.contains(id))
         .toList();
+    print(meals.length);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Second Route'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
+      body: Container(
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return MealItem(
+              title: meals[index].title,
+              affordability: meals[index].affordability,
+              complexity: meals[index].complexity,
+              duration: meals[index].duration,
+              imageUrl: meals[index].imageUrl,
+            );
           },
-          child: Text('id $id title $title ${meals[0].categories}'),
+          itemCount: meals.length,
         ),
       ),
     );
