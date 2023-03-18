@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './screen.dart';
+import 'screen/screen.dart';
 import 'screen/meals_screen.dart';
 import 'screen/recipie_screen.dart';
 
