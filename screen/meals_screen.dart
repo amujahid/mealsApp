@@ -16,16 +16,17 @@ class CategoryMealsScreen extends StatelessWidget {
     final List<Meal> meals = DUMMY_MEALS
         .where((element) => element.categories.contains(id))
         .toList();
-    print(meals.length);
+    
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Second Route'),
+        title: Text(title!),
       ),
       body: Container(
         child: ListView.builder(
           itemBuilder: (context, index) {
             return MealItem(
               title: meals[index].title,
+              id:meals[index].id,
               affordability: meals[index].affordability,
               complexity: meals[index].complexity,
               duration: meals[index].duration,
