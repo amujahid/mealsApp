@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../screen/recipie_screen.dart';
 
 class MealItem extends StatelessWidget {
-  
   final String id;
   final String title;
   final String imageUrl;
@@ -73,12 +72,16 @@ class MealItem extends StatelessWidget {
             Container(
               height: 50,
               transformAlignment: Alignment.center,
-              child:  Row(children: const  [
-                 IconButton(onPressed: null, icon: Icon(Icons.window_outlined)),
-                 Spacer(),
-                 IconButton(onPressed: null, icon: Icon(Icons.window_outlined)),
-                 Spacer(),
-                 IconButton(onPressed: null, icon: Icon(Icons.window_outlined)),
+              child: Row(children: [
+                Container(
+                    // margin: EdgeInsets.all(15),
+                    padding: EdgeInsets.all(5),
+                    child: IconButton(
+                        onPressed: null, icon: Icon(Icons.window_outlined))),
+                Spacer(),
+                IconButton(onPressed: null, icon: Icon(Icons.window_outlined)),
+                Spacer(),
+                IconButton(onPressed: null, icon: Icon(Icons.window_outlined)),
                 // what is spaceBetween?
               ]),
             )
